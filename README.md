@@ -1,7 +1,7 @@
 postWall
 ========
 
-postWall a simple video posting site framework in vanilla php no DB needed.
+postWall a simple video posting site framework in php no DB needed.
 
 ##Built with the following
 
