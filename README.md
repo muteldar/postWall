@@ -10,7 +10,6 @@ postWall a simple video posting site framework in vanilla php no DB needed.
 3. Delete above /admin/serverConfig.php file.
 4. Hit yourserver/admin/ to configure your pages.
 
-
 ##What To Know
 
 Currently only Youtube or Vimeo videos work as entries.
