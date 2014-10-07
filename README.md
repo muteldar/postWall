@@ -3,6 +3,12 @@ postWall
 
 postWall a simple video posting site framework in vanilla php no DB needed.
 
+##Built with the following
+
+* Bootstrap http://getbootstrap.com/
+* Spectrum http://bgrins.github.io/spectrum/
+* bootstrap-datepicker http://www.eyecon.ro/bootstrap-datepicker/
+
 ##How To Use
 
 1. Clone to a folder on your own web server.
