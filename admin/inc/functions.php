@@ -267,7 +267,7 @@ function Return_Entries()
 	$results = scandir($path, 1);
 	$i = 0;
 	
-	if(count($results) > 2)
+	if(count($results) > 3)
 	{
 		foreach($results as $result)
 		{
