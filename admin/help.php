@@ -7,9 +7,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<? 
+		<?php
 			echo '<title>'. BLOGNAME . ' | ' . 'AdminPanel</title>';
-			Fav_Icon();
 		?>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
