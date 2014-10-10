@@ -6,7 +6,7 @@ Admin_Header();
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<? 
+		<?php 
 			echo '<title>'. BLOGNAME . ' | ' . 'AdminPanel</title>';
 		?>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@ Admin_Header();
 			<p><h1>postWall Page Setup</h1></p>
 		</div>
 		<div class="container">
-			<? Log_Out_Bar(); ?>
+			<?php Log_Out_Bar(); ?>
 			<div class="row">
 				<div class="col-md-2">
 				<?php Admin_Navbar(basename($_SERVER['PHP_SELF']));  ?>
