@@ -49,7 +49,7 @@ elseif(isset($_POST['deleteAdmin']))
 			<p><h1>postWall Admin Logs</h1></p>
 		</div>
 		<div class="container">
-			<? Log_Out_Bar(); ?>
+			<?php Log_Out_Bar(); ?>
 			<div class="row">
 				<div class="col-md-2">
 					<?php Admin_Navbar(basename($_SERVER['PHP_SELF'])); ?>
