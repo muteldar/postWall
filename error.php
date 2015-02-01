@@ -9,15 +9,15 @@ if(! $error)
 <html>
 	<head>
 		<?php
-			$config = getcwd(). '/admin/pageConfig.php';
+			$config = getcwd(). '/admin/PageConfig.php';
 			if(file_exists($config))
 			{
 				include_once $config;
 			}
 			else
 			{
-				include_once getcwd().'/admin/inc/defaultConfig.php';
-			}	
+				include_once getcwd().'/admin/inc/DefaultConfig.php';
+			}
 		?>
 		<meta charset="utf-8">
 		<title>Uh Oh!</title>
@@ -26,7 +26,7 @@ if(! $error)
 			echo '<link href="http://fonts.googleapis.com/css?family=' . FONTSELECTION .'"';
 			echo ' rel="stylesheet" type="text/css">';;
 		?>
-		<link rel="stylesheet" type="text/css" href="./admin/css/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 		<style>
 			body{
 				font-family: "Droid Sans", sans-serif;

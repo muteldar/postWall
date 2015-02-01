@@ -6,15 +6,15 @@
 			bootstrap-datepicker http://www.eyecon.ro/bootstrap-datepicker/
 -->
 <?php
-	require('admin/inc/functions.php');
-	$config = 'admin/pageConfig.php';
+	require('admin/inc/Functions.php');
+	$config = 'admin/PageConfig.php';
 	if(file_exists($config))
 	{
 		require($config);
 	}
 	else
 	{
-		require('admin/inc/defaultConfig.php');
+		require('admin/inc/DefaultConfig.php');
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,6 +28,7 @@
 			Fav_Icon();
 		?>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://labnol.googlecode.com/files/youtube.js"></script>
 		<meta name="description" content="<?php echo BLOGNAME . ' | ' . PAGETITLE; ?>"/>
 		<meta name="keywords" content=""/>
 		<style>
@@ -76,9 +77,16 @@
 				font-weight: bold;
 			}
 			<?php
-				if(CUSTOMCSS != null && CUSTOMCSS != 'CUSTOMCSS')
+				if(!defined(CUSTOMCSS))
 				{
-					echo CUSTOMCSS;
+					echo '';
+				}
+				else
+				{
+					if(CUSTOMCSS != null && CUSTOMCSS != 'CUSTOMCSS')
+					{
+						echo CUSTOMCSS;
+					}
 				}
 			?>
 		</style>

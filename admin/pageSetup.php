@@ -1,5 +1,5 @@
 <?php
-require('inc/functions.php');
+require('inc/Functions.php');
 Admin_Header();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,10 +10,11 @@ Admin_Header();
 			echo '<title>'. BLOGNAME . ' | ' . 'AdminPanel</title>';
 		?>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="./css/spectrum.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.6.0/spectrum.min.css" rel="stylesheet">
+		<link href="./css/spectrum-theme.css" rel="stylesheet">
 		<link href="//fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="./js/spectrum.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.6.0/spectrum.min.js"></script>
 		<script type="text/javascript">
 			<?php
 				echo'
@@ -56,7 +57,7 @@ Admin_Header();
 	</head>
 	<body>
 		<?php
-			$configName = 'pageConfig.php';
+			$configName = 'PageConfig.php';
 			if(file_exists($configName))
 			{
 				include $configName;
@@ -81,7 +82,7 @@ Admin_Header();
 						}
 						else
 						{
-							$customCSS = '';
+							$customCSS = 'if (!defined("CUSTOMCSS")) define("CUSTOMCSS", "");';
 						}
 						$configInfo = 
 						'<?php

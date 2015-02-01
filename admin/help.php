@@ -1,5 +1,5 @@
 <?php
-	require('inc/functions.php');
+	require('inc/Functions.php');
 	Admin_Header();
 ?>
 
@@ -38,7 +38,7 @@
 							<div class="panel-heading"><h3>postWall FAQ</h3></div>
 							<div class="panel-body">
 							<h4>How do I change my password?</h4>
-							<p>Pull another copy of the serverSetup.php page from GitHub and repassword yoursite.</p>
+							<p>Pull another copy of the ServerSetup.php page from GitHub and repassword yoursite.</p>
 							<h4>How do I edit existing entries?</h4>
 							<p>Right now you dont really I should be adding a simple editing feature in future releases. If you really want to you can manually edit the JSON of the specific entry you want to edit.</p>
 							<h4>What customization can I do?</h4>

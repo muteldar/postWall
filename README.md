@@ -1,7 +1,7 @@
 postWall
 ========
 
-postWall a simple video(eventualy generic media) posting-site framework in php no DB needed.
+postWall a simple video posting-site framework in php no DB needed.
 
 ##Built with the following
 
@@ -12,15 +12,20 @@ postWall a simple video(eventualy generic media) posting-site framework in php n
 ##How to use
 
 1. Clone to a folder on your own web server.
-2. Hit yourserver/admin/serverConfig.php and setup your user/password.
-3. Delete above /admin/serverConfig.php file.
+2. Hit yourserver/admin/ServerConfig.php and setup your user/password.
+3. Delete above /admin/ServerConfig.php file.
 4. Hit yourserver/admin/ to configure your pages.
+
+##Local Testing
+
+1. vagrant up
+2. local instance will be running at localhost:8080
 
 ##What to know
 
-1. Currently only Youtube or Vimeo videos work as entries.
+1. Only Youtube or Vimeo videos work as entries.
 
-##Features that aren't present by design
+##Features that are not present by design
 
 1. Comments on posts by others
 2. Pagination

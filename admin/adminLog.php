@@ -1,5 +1,5 @@
 <?php
-require('inc/functions.php');
+require('inc/Functions.php');
 Admin_Header();
 
 if(isset($_POST['deleteAccess']))

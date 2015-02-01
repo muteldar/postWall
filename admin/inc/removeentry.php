@@ -4,7 +4,7 @@ if(!isset($_SESSION))
 	session_start();
 }
 
-require('functions.php');
+require('Functions.php');
 
 if(Login_Check())
 {
@@ -23,6 +23,6 @@ if(Login_Check())
 }
 else
 {
-	header('location: ../../error.php?err=Invalid Request');
+	header('location: ../../Error.php?err=Invalid Request');
 }
 ?>

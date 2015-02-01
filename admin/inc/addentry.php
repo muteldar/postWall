@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'functions.php';
+include_once 'Functions.php';
 
 if(Login_Check())
 {
@@ -16,7 +16,7 @@ if(Login_Check())
 					$comments = '';
 				if(Add_Entry($date, $videohash, $comments) === false)
 				{
-					header('location: ../../error.php?err=Entry Not Created');
+					header('location: ../../Error.php?err=Entry Not Created');
 				}
 				else
 				{
@@ -25,16 +25,16 @@ if(Login_Check())
 			}
 			else
 			{
-				header('location: ../../error.php?err=Entry Not Created Invalid Video ID');
+				header('location: ../../Error.php?err=Entry Not Created Invalid Video ID');
 			}
 		}
 		else
 		{
-			header('location: ../../error.php?err=Date or VideoHash has not been set properly');
+			header('location: ../../Error.php?err=Date or VideoHash has not been set properly');
 		}
 }
 else
 {
-	header('location: ../../error.php?err=Invalid Request');
+	header('location: ../../Error.php?err=Invalid Request');
 }
 ?>
