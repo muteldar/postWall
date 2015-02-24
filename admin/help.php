@@ -1,5 +1,5 @@
 <?php
-	require('inc/Functions.php');
+	require('inc/functions.php');
 	Admin_Header();
 ?>
 

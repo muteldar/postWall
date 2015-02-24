@@ -26,12 +26,12 @@
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
 				<?php
-					$configName = 'ServerConfig.php';
+					$configName = 'serverConfig.php';
 
-					if(file_exists($configName))
+					if(file_exists('inc/' . $configName))
 					{
 						echo '<div class="text-center"><h2><p class="text-success">Config File Has Been Created!</p>
-						<p class="text-danger"> Make sure to delete ServerSetup.php to keep your settings secure</p></h2></div>';
+						<p class="text-danger"> Make sure to delete serverSetup.php to keep your settings secure</p></h2></div>';
 						require($configName);
 					}
 

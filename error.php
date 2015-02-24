@@ -16,7 +16,7 @@ if(! $error)
 			}
 			else
 			{
-				include_once getcwd().'/admin/inc/DefaultConfig.php';
+				include_once getcwd().'/admin/inc/defaultConfig.php';
 			}
 		?>
 		<meta charset="utf-8">

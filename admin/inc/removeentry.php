@@ -4,7 +4,7 @@ if(!isset($_SESSION))
 	session_start();
 }
 
-require('Functions.php');
+require('functions.php');
 
 if(Login_Check())
 {

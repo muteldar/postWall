@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'Functions.php';
+include_once 'functions.php';
 
 if(Login_Check())
 {

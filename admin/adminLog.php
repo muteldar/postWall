@@ -1,5 +1,5 @@
 <?php
-require('inc/Functions.php');
+require('inc/functions.php');
 Admin_Header();
 
 if(isset($_POST['deleteAccess']))
@@ -21,7 +21,7 @@ elseif(isset($_POST['deleteAdmin']))
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<?php 
+		<?php
 			echo '<title>'. BLOGNAME . ' | ' . 'AdminPanel</title>';
 		?>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">

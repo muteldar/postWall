@@ -4,8 +4,8 @@ if(!isset($_SESSION))
 {
 	session_start();
 }
- 
-$path = __DIR__ . '/ServerConfig.php';
+
+$path = __DIR__ . '/serverConfig.php';
 
 if(file_exists($path))
 {
@@ -15,7 +15,7 @@ else
 {
 
 }
-require('Constants.php');
+require('constants.php');
 
 //============================
 // Set TimeZone Default
@@ -24,7 +24,7 @@ require('Constants.php');
 if (!defined('TIMEZONE'))
 {
 	date_default_timezone_set('UTC');
-} 
+}
 else
 {
 	date_default_timezone_set(TIMEZONE);
@@ -106,7 +106,7 @@ function Return_Setting($setting)
 //============================
 function Fav_Icon()
 {
-	echo '<link rel="icon" type="image/png" href="./favicon.ico">';
+	echo '<link rel="icon" type="image/png" href="favicon.ico">';
 	/*<link rel="apple-touch-icon" sizes="57x57" href="../apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="../apple-touch-icon-114x114.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../apple-touch-icon-72x72.png">
@@ -145,7 +145,7 @@ function Admin_Header()
 		}
 		else
 		{
-			require("inc/DefaultConfig.php");
+			require("inc/defaultConfig.php");
 		}
 	}
 }
@@ -163,7 +163,7 @@ function Log_Out_Bar()
 		<div class="col-md-2"></div>
 			<div class="titleDiv col-md-8">
 				<h3>
-					Logged in as '. $_SESSION["username"] .'<p class="pull-right"> <a href="Logout.php">logout</a> </p>
+					Logged in as '. $_SESSION["username"] .'<p class="pull-right"> <a href="logout.php">logout</a> </p>
 				</h3>
 			</div>
 		<div class="col-md-2"></div>
@@ -184,39 +184,39 @@ function Admin_Navbar($page)
 		echo
 		'<ul class="nav nav-pills nav-stacked">
 			<li class="active"><a href="index.php">Home</a></li>
-			<li><a href="PageSetup.php">Page Setup</a></li>
-			<li><a href="AdminLog.php">Admin Logs</a></li>
-			<li><a href="Help.php">Help</a></li>
+			<li><a href="pageSetup.php">Page Setup</a></li>
+			<li><a href="adminLog.php">Admin Logs</a></li>
+			<li><a href="help.php">help</a></li>
 		</ul>';
 	}
-	elseif ($page == 'PageSetup.php')
+	elseif ($page == 'pageSetup.php')
 	{
 		echo
 		'<ul class="nav nav-pills nav-stacked">
 			<li><a href="index.php">Home</a></li>
-			<li class="active"><a href="PageSetup.php">Page Setup</a></li>
-			<li><a href="AdminLog.php">Admin Logs</a></li>
-			<li><a href="Help.php">Help</a></li>
+			<li class="active"><a href="pageSetup.php">Page Setup</a></li>
+			<li><a href="adminLog.php">Admin Logs</a></li>
+			<li><a href="help.php">help</a></li>
 		</ul>';
 	}
-	elseif($page == 'AdminLog.php')
+	elseif($page == 'adminLog.php')
 	{
 		echo
 		'<ul class="nav nav-pills nav-stacked">
 			<li><a href="index.php">Home</a></li>
-			<li><a href="PageSetup.php">Page Setup</a></li>
-			<li class="active"><a href="AdminLog.php">Admin Logs</a></li>
-			<li><a href="Help.php">Help</a></li>
+			<li><a href="pageSetup.php">Page Setup</a></li>
+			<li class="active"><a href="adminLog.php">Admin Logs</a></li>
+			<li><a href="help.php">help</a></li>
 		</ul>';
 	}
-	elseif($page == 'Help.php')
+	elseif($page == 'help.php')
 	{
 		echo
 		'<ul class="nav nav-pills nav-stacked">
 			<li><a href="index.php">Home</a></li>
-			<li><a href="PageSetup.php">Page Setup</a></li>
-			<li><a href="AdminLog.php">Admin Logs</a></li>
-			<li class="active"><a href="Help.php">Help</a></li>
+			<li><a href="pageSetup.php">Page Setup</a></li>
+			<li><a href="adminLog.php">Admin Logs</a></li>
+			<li class="active"><a href="help.php">help</a></li>
 		</ul>';
 	}
 }
@@ -341,7 +341,7 @@ function List_Entries_Admin()
 		$path = '../entries';
 		$results = scandir($path, 1);
 		natsort($results);
-		echo "<form class='form' role='form' method='post' name='removeform' action='inc/RemoveEntry.php'>";
+		echo "<form class='form' role='form' method='post' name='removeform' action='inc/removeEntry.php'>";
 		echo "<table class='table table-striped table-bordered'>";
 		echo
 		"<tr>
@@ -430,7 +430,7 @@ function Write_Access_Log($attempt)
 function Write_Admin_Log($action)
 {
 	$adminAction = date("Y-m-d H:i:s"). ' [Admin ' . $action . ' Action] IP : ' .Return_Ip(). "\n";
-	$fileWrite = fopen(ADMINLOG, "a+");
+	$fileWrite = fopen(adminLog, "a+");
 	fwrite($fileWrite, $adminAction);
 	fclose($fileWrite);
 }

@@ -1,12 +1,12 @@
-<!-- 
-		Built with/by 
+<!--
+		Built with/by
 			n00bworks http://www.n00bworks.com/
 			Twitter bootstrap http://getbootstrap.com/
 			Spectrum http://bgrins.github.io/spectrum/
 			bootstrap-datepicker http://www.eyecon.ro/bootstrap-datepicker/
 -->
 <?php
-	require('admin/inc/Functions.php');
+	require('admin/inc/functions.php');
 	$config = 'admin/PageConfig.php';
 	if(file_exists($config))
 	{
@@ -14,21 +14,20 @@
 	}
 	else
 	{
-		require('admin/inc/DefaultConfig.php');
+		require('admin/inc/defaultConfig.php');
 	}
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<title><?php echo BLOGNAME . ' | ' . PAGETITLE; ?></title>	
+		<title><?php echo BLOGNAME . ' | ' . PAGETITLE; ?></title>
 		<?php
 			echo '<link href="http://fonts.googleapis.com/css?family=' . FONTSELECTION .'"';
 			echo ' rel="stylesheet" type="text/css">';
 			Fav_Icon();
 		?>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-		<script src="https://labnol.googlecode.com/files/youtube.js"></script>
 		<meta name="description" content="<?php echo BLOGNAME . ' | ' . PAGETITLE; ?>"/>
 		<meta name="keywords" content=""/>
 		<style>
@@ -61,10 +60,14 @@
 				font-size: <?php echo FONTSIZE."px"?>;
 				word-wrap: break-word;
 			}
-			.entryDiv{ 
+			.entryDiv{
 				width: <?php echo SPAN; ?>;
 				background-color: <?php echo POSTCOLOR; ?>;
 				padding: 20px;
+				text-align: center;
+				margin:0 auto;
+			}
+			.youtube{
 				text-align: center;
 				margin:0 auto;
 			}
@@ -103,9 +106,10 @@
 	<footer>
 	<div class='footerDiv'>
 		<?php
-		echo BLOGNAME.' '; 
-		echo date('Y'); 
+		echo BLOGNAME.' ';
+		echo date('Y');
 		?>
 	</div>
+	<script src="https://labnol.googlecode.com/files/youtube.js"></script>
 	</footer>
 </html>

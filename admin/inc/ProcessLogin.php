@@ -1,5 +1,5 @@
 <?php
-	require('Functions.php');
+	require('functions.php');
 	if(isset($_POST['username'], $_POST['password']))
 	{
 		$username = $_POST['username'];
