@@ -6,7 +6,7 @@ Admin_Header();
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<?php 
+		<?php
 			echo '<title>'. BLOGNAME . ' | ' . 'AdminPanel</title>';
 		?>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +57,7 @@ Admin_Header();
 	</head>
 	<body>
 		<?php
-			$configName = 'PageConfig.php';
+			$configName = 'pageConfig.php';
 			if(file_exists($configName))
 			{
 				include $configName;
@@ -73,7 +73,7 @@ Admin_Header();
 				<?php Admin_Navbar(basename($_SERVER['PHP_SELF']));  ?>
 				</div>
 				<div class="col-md-8">
-				<?php 
+				<?php
 					if(isset($_POST['BlogName'],$_POST['PageTitle'],$_POST['FontSelection'],$_POST['BackgroundColor'],$_POST['PostBackgroundColor'],$_POST['FontColor'],$_POST['SpanSize']))
 					{
 						if(isset($_POST['CustomCSS']) && $_POST['CustomCSS'] != "")
@@ -84,7 +84,7 @@ Admin_Header();
 						{
 							$customCSS = 'if (!defined("CUSTOMCSS")) define("CUSTOMCSS", "");';
 						}
-						$configInfo = 
+						$configInfo =
 						'<?php
 						if (!defined("BLOGNAME")) define("BLOGNAME", "'. $_POST['BlogName'] .'");
 						if (!defined("PAGETITLE")) define("PAGETITLE", "'. $_POST['PageTitle'] .'");
@@ -139,11 +139,11 @@ Admin_Header();
 						}
 						else
 						{
-							echo '<option value="'. $fontName .'">' . $fontName . '</option>';	
+							echo '<option value="'. $fontName .'">' . $fontName . '</option>';
 						}
 					}
 					fclose($fonts);
-					echo '	
+					echo '
 					</select>
 					</div>
 					<div class="form-group">

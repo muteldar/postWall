@@ -3,7 +3,7 @@ $error = filter_input(INPUT_GET, 'err', $filter = FILTER_SANITIZE_STRING);
 
 if(! $error)
 {
-	$error = 'Sorry! There was an Unknown Error.';
+	$error = 'Sorry! There was an Unknown error.';
 }
 ?>
 <html>
@@ -44,7 +44,7 @@ if(! $error)
 			<div class="col-md-8">
 				<div class="Panel Panel-Default">
 					<div class="panel-heading">
-						<h1>Uh Oh there has been an Error!</h1>
+						<h1>Uh Oh there has been an error!</h1>
 					</div>
 					<div class="panel-body">
 						<h2><?php echo $error; ?></h2>

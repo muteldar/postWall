@@ -10,7 +10,7 @@
 		}
 		else
 		{
-			header('Location: ../../Error.php?err=Username or Password is Incorrect');
+			header('Location: ../../error.php?err=Username or Password is Incorrect');
 		}
 	}
 	else

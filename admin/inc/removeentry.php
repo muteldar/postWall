@@ -23,6 +23,6 @@ if(Login_Check())
 }
 else
 {
-	header('location: ../../Error.php?err=Invalid Request');
+	header('location: ../../error.php?err=Invalid Request');
 }
 ?>

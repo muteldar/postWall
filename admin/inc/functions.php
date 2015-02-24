@@ -134,7 +134,7 @@ function Admin_Header()
 {
 	if(!Login_Check())
 	{
-		header("location: ". Return_Error("Not Authorized"));
+		header("location: ". Return_error("Not Authorized"));
 	}
 	else
 	{
@@ -292,7 +292,8 @@ function Return_Entries()
 
 		foreach($entries as $key => $value)
 		{
-			$dates[$key] = $value['date'];
+			$tempDate = str_replace("-", "/", $value['date']);
+			$dates[$key] = strtotime($tempDate);
 		}
 
 		array_multisort($dates, SORT_DESC, $entries);
@@ -466,17 +467,17 @@ function Return_Log_Lines($log)
 }
 
 //============================
-// Return Error Page.
+// Return error Page.
 //
-// @param  string   $error Error text to display on the error page.
-// @return string   $return Error Constructed page with url parameter set to $error.
+// @param  string   $error error text to display on the error page.
+// @return string   $return error Constructed page with url parameter set to $error.
 //
 //============================
-function Return_Error($error)
+function Return_error($error)
 {
-	$path = '../Error.php';
-	$returnError = $path. "?err=". $error;
-	return $returnError;
+	$path = '../error.php';
+	$returnerror = $path. "?err=". $error;
+	return $returnerror;
 }
 
 //============================

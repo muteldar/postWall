@@ -7,7 +7,7 @@
 -->
 <?php
 	require('admin/inc/functions.php');
-	$config = 'admin/PageConfig.php';
+	$config = 'admin/pageConfig.php';
 	if(file_exists($config))
 	{
 		require($config);
@@ -80,17 +80,7 @@
 				font-weight: bold;
 			}
 			<?php
-				if(!defined(CUSTOMCSS))
-				{
-					echo '';
-				}
-				else
-				{
-					if(CUSTOMCSS != null && CUSTOMCSS != 'CUSTOMCSS')
-					{
-						echo CUSTOMCSS;
-					}
-				}
+				echo CUSTOMCSS;
 			?>
 		</style>
 	</head>
