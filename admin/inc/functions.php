@@ -5,8 +5,7 @@ if(!isset($_SESSION))
 	session_start();
 }
 
-$path = dirname(__DIR__);
-$path .= '/serverConfig.php';
+$path = __DIR__ . '/serverConfig.php';
 
 if(file_exists($path))
 {
@@ -14,7 +13,7 @@ if(file_exists($path))
 }
 else
 {
-	
+
 }
 require('constants.php');
 
@@ -22,7 +21,14 @@ require('constants.php');
 // Set TimeZone Default
 //
 //============================
-date_default_timezone_set(TIMEZONE);
+if (!defined('TIMEZONE'))
+{
+	date_default_timezone_set('UTC');
+}
+else
+{
+	date_default_timezone_set(TIMEZONE);
+}
 
 //============================
 // Login and set $_SESSION vars.
@@ -95,12 +101,12 @@ function Return_Setting($setting)
 
 //============================
 // echo favicon block
-// 
+//
 //
 //============================
 function Fav_Icon()
 {
-	echo '<link rel="icon" type="image/png" href="./favicon.ico">';
+	echo '<link rel="icon" type="image/png" href="favicon.ico">';
 	/*<link rel="apple-touch-icon" sizes="57x57" href="../apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="../apple-touch-icon-114x114.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../apple-touch-icon-72x72.png">
@@ -128,11 +134,11 @@ function Admin_Header()
 {
 	if(!Login_Check())
 	{
-		header("location: ". Return_Error("Not Authorized"));
+		header("location: ". Return_error("Not Authorized"));
 	}
 	else
 	{
-		$config = "pageConfig.php";
+		$config = "PageConfig.php";
 		if(file_exists($config))
 		{
 			require($config);
@@ -152,7 +158,7 @@ function Admin_Header()
 function Log_Out_Bar()
 {
 	echo
-	'		
+	'
 	<div class="row">
 		<div class="col-md-2"></div>
 			<div class="titleDiv col-md-8">
@@ -180,7 +186,7 @@ function Admin_Navbar($page)
 			<li class="active"><a href="index.php">Home</a></li>
 			<li><a href="pageSetup.php">Page Setup</a></li>
 			<li><a href="adminLog.php">Admin Logs</a></li>
-			<li><a href="help.php">Help</a></li>
+			<li><a href="help.php">help</a></li>
 		</ul>';
 	}
 	elseif ($page == 'pageSetup.php')
@@ -190,7 +196,7 @@ function Admin_Navbar($page)
 			<li><a href="index.php">Home</a></li>
 			<li class="active"><a href="pageSetup.php">Page Setup</a></li>
 			<li><a href="adminLog.php">Admin Logs</a></li>
-			<li><a href="help.php">Help</a></li>
+			<li><a href="help.php">help</a></li>
 		</ul>';
 	}
 	elseif($page == 'adminLog.php')
@@ -200,7 +206,7 @@ function Admin_Navbar($page)
 			<li><a href="index.php">Home</a></li>
 			<li><a href="pageSetup.php">Page Setup</a></li>
 			<li class="active"><a href="adminLog.php">Admin Logs</a></li>
-			<li><a href="help.php">Help</a></li>
+			<li><a href="help.php">help</a></li>
 		</ul>';
 	}
 	elseif($page == 'help.php')
@@ -210,17 +216,17 @@ function Admin_Navbar($page)
 			<li><a href="index.php">Home</a></li>
 			<li><a href="pageSetup.php">Page Setup</a></li>
 			<li><a href="adminLog.php">Admin Logs</a></li>
-			<li class="active"><a href="help.php">Help</a></li>
+			<li class="active"><a href="help.php">help</a></li>
 		</ul>';
 	}
 }
 
 //============================
 // Validate video ID being passed
-// 
+//
 // @param   string videoID
 // @return  bool   if video exists or not
-// 
+//
 //============================
 function Validate_Video($videoID)
 {
@@ -244,7 +250,7 @@ function Validate_Video($videoID)
 	else
 	{
 		$validateCheck = file_get_contents($youtubeValidate.$videoID);
-		if($validateCheck == "Video not found" && $validateCheck == "Invalid id")
+		if($validateCheck == "Video not found" || $validateCheck == "Invalid id")
 		{
 			return false;
 		}
@@ -266,7 +272,7 @@ function Return_Entries()
 	$path = 'entries';
 	$results = scandir($path, 1);
 	$i = 0;
-	
+
 	if(count($results) > 3)
 	{
 		foreach($results as $result)
@@ -275,22 +281,23 @@ function Return_Entries()
 			{
 				$contents = file_get_contents($path . '/' . $result);
 				$obj = json_decode($contents);
-				$entries[$i]['date'] = $obj->{"date"}; 
+				$entries[$i]['date'] = $obj->{"date"};
 				$entries[$i]['video'] = $obj->{"video"};
 				$entries[$i]['comments'] = $obj->{"comments"};
 				$i++;
 			}
 		}
-		
+
 		$dates = array();
 
 		foreach($entries as $key => $value)
 		{
-			$dates[$key] = $value['date'];
+			$tempDate = str_replace("-", "/", $value['date']);
+			$dates[$key] = strtotime($tempDate);
 		}
 
 		array_multisort($dates, SORT_DESC, $entries);
-		
+
 		foreach($entries as $key => $value)
 		{
 	        echo
@@ -302,8 +309,9 @@ function Return_Entries()
 	        	echo "<iframe src='//player.vimeo.com/video/".$value['video'] ."' width='520' height='415' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
 	        }
 	        else
-	        {	
-	        	echo "<iframe width='520' height='415' src='//www.youtube.com/embed/". $value['video'] ."?rel=0' frameborder='0' allowfullscreen></iframe>";
+	        {
+	        	echo "<div class='youtube' id='" . $value['video'] . "' style='width: 520px; height: 415px;'></div>";
+	        	//echo "<iframe width='520' height='415' src='//www.youtube.com/embed/". $value['video'] ."?rel=0' frameborder='0' allowfullscreen></iframe>";
 	        }
 	        echo
 	        "<div class='commentDiv'><p>". $value['comments'] ."</p></div>
@@ -324,7 +332,7 @@ function Return_Entries()
 //============================
 //
 // Echo Entries with Checkboxes for editing.
-// Used for the adminpage. 
+// Used for the adminpage.
 //
 //============================
 function List_Entries_Admin()
@@ -334,9 +342,9 @@ function List_Entries_Admin()
 		$path = '../entries';
 		$results = scandir($path, 1);
 		natsort($results);
-		echo "<form class='form' role='form' method='post' name='removeform' action='inc/removeentry.php'>";
+		echo "<form class='form' role='form' method='post' name='removeform' action='inc/removeEntry.php'>";
 		echo "<table class='table table-striped table-bordered'>";
-		echo 
+		echo
 		"<tr>
 			<th>Entry Date</th>
 			<th>Delete?</th>
@@ -345,7 +353,7 @@ function List_Entries_Admin()
 		{
 			if(strpos($result,'.entry') !== false)
 			{
-				echo 
+				echo
 				"<tr>
 					<td>$result</td>
 					<td>
@@ -393,7 +401,7 @@ function Check_For_Entry($date)
 //
 // @param  string   $attempt Type of attempt (Failed/Succeded).
 // @return bool     true if file was written | false if not.
-// 
+//
 //============================
 function Write_Access_Log($attempt)
 {
@@ -423,14 +431,14 @@ function Write_Access_Log($attempt)
 function Write_Admin_Log($action)
 {
 	$adminAction = date("Y-m-d H:i:s"). ' [Admin ' . $action . ' Action] IP : ' .Return_Ip(). "\n";
-	$fileWrite = fopen(ADMINLOG, "a+");
+	$fileWrite = fopen(adminLog, "a+");
 	fwrite($fileWrite, $adminAction);
 	fclose($fileWrite);
 }
 
 //============================
 // Echo each logline from the provided log
-// 
+//
 // @param string   $log Log to be returned.
 //
 //============================
@@ -459,17 +467,17 @@ function Return_Log_Lines($log)
 }
 
 //============================
-// Return Error Page.
+// Return error Page.
 //
-// @param  string   $error Error text to display on the error page.
-// @return string   $return Error Constructed page with url parameter set to $error.
+// @param  string   $error error text to display on the error page.
+// @return string   $return error Constructed page with url parameter set to $error.
 //
 //============================
-function Return_Error($error)
+function Return_error($error)
 {
 	$path = '../error.php';
-	$returnError = $path. "?err=". $error;
-	return $returnError;
+	$returnerror = $path. "?err=". $error;
+	return $returnerror;
 }
 
 //============================

@@ -4,14 +4,14 @@ if(!isset($_SESSION))
 	session_start();
 }
 require('inc/functions.php');
-$config = 'pageConfig.php';
+$config = __DIR__ . '/inc/pageConfig.php';
 if(file_exists($config))
 {
 	include_once $config;
 }
 else
 {
-	include_once 'inc/defaultConfig.php';
+	include_once __DIR__ . '/inc/defaultConfig.php';
 }
 
 if(Login_Check())
@@ -26,8 +26,8 @@ if(Login_Check())
 			echo '
 			<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 			<link href="//fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
-			<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-			<link rel="stylesheet" type="text/css" href="css/datepicker.css">
+			<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.min.css" rel="stylesheet" type="text/css">
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 			<script>
@@ -60,7 +60,7 @@ if(Login_Check())
 				echo '
 				<div class="row">
 					<div class="col-md-2">
-					'; 
+					';
 					Admin_Navbar(basename($_SERVER['PHP_SELF']));
 					echo '
 					</div>
@@ -141,7 +141,7 @@ else
 						<div class="Panel Panel-Default">
 							<div class="panel-heading"><h3>Admin Login</h3></div>
 							<div class="panel-body">
-								<form class="form-inline" role="form" method="post" action="inc/process_login.php">
+								<form class="form-inline" role="form" method="post" action="inc/processLogin.php">
 		                            <div class="form-group">
 		                                <label class="sr-only" for="username">User Name</label>
 		                            	<div class="controls">

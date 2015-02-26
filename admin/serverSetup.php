@@ -25,10 +25,10 @@
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
-				<?php 
+				<?php
 					$configName = 'serverConfig.php';
 
-					if(file_exists($configName))
+					if(file_exists('inc/' . $configName))
 					{
 						echo '<div class="text-center"><h2><p class="text-success">Config File Has Been Created!</p>
 						<p class="text-danger"> Make sure to delete serverSetup.php to keep your settings secure</p></h2></div>';
@@ -38,18 +38,18 @@
 					if(isset($_POST['TimeZoneSelect'],$_POST['AdminUser'],$_POST['AdminPass']))
 					{
 						$salt = bin2hex(mcrypt_create_iv(60, MCRYPT_DEV_URANDOM));
-						$configInfo = 
-						'<?php 
+						$configInfo =
+						'<?php
 						define("TIMEZONE", "'. $_POST['TimeZoneSelect'] .'");
 						define("USER", "'. $_POST['AdminUser'] .'");
 						define("PASSWORD", "'. crypt($_POST['AdminPass'], $salt) .'");
 						define("SALT", "'. $salt .'");
 						?>';
-						$fileWrite = fopen($configName, "w");
+						$fileWrite = fopen(__DIR__ . "/inc/" . $configName, "w");
 						fwrite($fileWrite, $configInfo);
 						fclose($fileWrite);
 					}
-					
+
 					echo '
 					<div class="Panel Panel-Default">
 					<div class="panel-heading"><h3>Server Settings</h3></div>
@@ -62,7 +62,7 @@
 					foreach($timezones as $zone)
 					{
 						echo '<option>'.$zone.'</option> ';
-					}									
+					}
 					echo'
 					</select>
 					</div>

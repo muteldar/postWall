@@ -1,5 +1,5 @@
-<!-- 
-		Built with/by 
+<!--
+		Built with/by
 			n00bworks http://www.n00bworks.com/
 			Twitter bootstrap http://getbootstrap.com/
 			Spectrum http://bgrins.github.io/spectrum/
@@ -21,7 +21,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		<title><?php echo BLOGNAME . ' | ' . PAGETITLE; ?></title>	
+		<title><?php echo BLOGNAME . ' | ' . PAGETITLE; ?></title>
 		<?php
 			echo '<link href="http://fonts.googleapis.com/css?family=' . FONTSELECTION .'"';
 			echo ' rel="stylesheet" type="text/css">';
@@ -60,10 +60,14 @@
 				font-size: <?php echo FONTSIZE."px"?>;
 				word-wrap: break-word;
 			}
-			.entryDiv{ 
+			.entryDiv{
 				width: <?php echo SPAN; ?>;
 				background-color: <?php echo POSTCOLOR; ?>;
 				padding: 20px;
+				text-align: center;
+				margin:0 auto;
+			}
+			.youtube{
 				text-align: center;
 				margin:0 auto;
 			}
@@ -76,10 +80,7 @@
 				font-weight: bold;
 			}
 			<?php
-				if(CUSTOMCSS != null && CUSTOMCSS != 'CUSTOMCSS')
-				{
-					echo CUSTOMCSS;
-				}
+				echo CUSTOMCSS;
 			?>
 		</style>
 	</head>
@@ -95,9 +96,10 @@
 	<footer>
 	<div class='footerDiv'>
 		<?php
-		echo BLOGNAME.' '; 
-		echo date('Y'); 
+		echo BLOGNAME.' ';
+		echo date('Y');
 		?>
 	</div>
+	<script src="https://labnol.googlecode.com/files/youtube.js"></script>
 	</footer>
 </html>

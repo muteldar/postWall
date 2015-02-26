@@ -8,4 +8,5 @@
 	define("POSTCOLOR", "#FFF");
 	define("FONTCOLOR", "#000");
 	define("SPAN", "60%");
+	define("CUSTOMCSS", "CUSTOMCSS");
 ?>
