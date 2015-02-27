@@ -15,6 +15,7 @@ postWall a simple video posting-site framework in php no DB needed.
 2. Hit yourserver/admin/ServerConfig.php and setup your user/password.
 3. Delete above /admin/ServerConfig.php file.
 4. Hit yourserver/admin/ to configure your pages.
+5. You may need to adjust folder permissions for settings and entries to be created.
 
 ##Local Testing
 
