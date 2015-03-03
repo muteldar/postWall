@@ -90,16 +90,6 @@ function Return_Ip()
 }
 
 //============================
-// TBD should be used instead of includes on every page.
-//
-//============================
-function Return_Setting($setting)
-{
-
-
-}
-
-//============================
 // echo favicon block
 //
 //

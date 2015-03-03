@@ -40,14 +40,14 @@
 							<h4>How do I change my password?</h4>
 							<p>Pull another copy of the ServerSetup.php page from GitHub and repassword yoursite.</p>
 							<h4>How do I edit existing entries?</h4>
-							<p>Right now you dont really I should be adding a simple editing feature in future releases. If you really want to you can manually edit the JSON of the specific entry you want to edit.</p>
+							<p>Right now you dont really. If you really want to you can manually edit the JSON of the specific entry you want to edit or delete and recreate.</p>
 							<h4>What customization can I do?</h4>
 							<p>Right now the custom CSS field will add whatever CSS you provide to the main index page(the one that renders the blog). Feel free to also edit the styles themselves for the Admin Pages.</p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-2"></div>
-				</div>	
+				</div>
 			</div>
 		</div>
 	</body>
