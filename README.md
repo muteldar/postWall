@@ -1,7 +1,7 @@
 postWall
 ========
 
-postWall a simple video posting-site framework in php no DB needed.
+postWall a simple video posting-site framework in php no DB needed as flat files are used.
 
 ##Built with the following
 
@@ -13,7 +13,7 @@ postWall a simple video posting-site framework in php no DB needed.
 
 1. Clone to a folder on your own web server.
 2. Hit yourserver/admin/ServerConfig.php and setup your user/password.
-3. Delete above /admin/ServerConfig.php file.
+3. Delete above /admin/ServerConfig.php file to keep settings safe.
 4. Hit yourserver/admin/ to configure your pages.
 5. You may need to adjust folder permissions for settings and entries to be created.
 
